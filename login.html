@@ -1,0 +1,135 @@
+<html>
+<head>
+<title>login </title>
+
+
+<link rel="stylesheet" href="login.css">
+<style>
+    body{
+        background: rgb(24, 23, 23);
+    }
+    .main {
+        width: 880px;
+        height: 550px;
+        background: url("img/bg.jpg");
+        margin: 100px auto;
+    }
+    .content {
+        width: 323px;
+        height: 300px;
+        margin: 110px auto;
+        position: relative;
+    }
+    h1 {
+        font-size: 32px;
+        color: #ffffff;
+        font-family: Times;
+        margin-top: 110px;
+        text-align: center;
+        margin-bottom: 14px;
+    }
+    input {
+        width: 302px;
+        height: 43px;
+        border: 1px #6a6f73 solid;
+        background: rgb(24, 23, 23, 0);
+        margin-left: 10px;
+    }
+    input:nth-of-type(1) {
+        margin: 10px 0 10px 10px;
+        background: url("img/lock.png");
+    }
+    button {
+        width: 82px;
+        height: 39px;
+        background: #fff;
+        border: none;
+        margin: 15px 0 40px 10px;
+        font-size: 20px;
+        color: #242222;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    hr:nth-of-type(2n+1) {
+        border: 1px #fff solid;
+        margin-bottom: 4px;
+    }
+    hr:nth-of-type(2n) {
+        border: 3px #fff solid;
+    }
+</style>
+<script language="JavaScript" type="text/javaScript">
+function validate()
+{	
+
+	
+	if(document.user.password.value == "")	
+	   {
+			document.getElementById("password").focus();
+            document.getElementById("pass").innerHTML="password is empty!!";	
+			return false;
+	   }	
+
+	if ( document.user.email.value == "" )		
+    {
+        document.getElementById("mail").innerHTML="Email address is empty!!!";
+        document.getElementById("email").focus();
+		return false;
+	}	
+    let valu=document.getElementById("email").value;
+    let loc1=valu.indexOf('@');
+    let loc2=valu.indexOf('.');
+    if(loc1<1) 
+    { 
+        document.getElementById("mail").innerHTML="Email address is Invalid!!!";
+        document.getElementById("email").focus();
+        return false;
+    }
+    if(loc2<(loc1+1))
+    { 
+        document.getElementById("mail").innerHTML="Email address is Invalid!!!";
+        document.getElementById("email").focus();
+        return false;
+    }
+    if((loc2+2)>valu.length)
+    { 
+        document.getElementById("mail").innerHTML="Email address is Invalid!!!";
+        document.getElementById("email").focus();
+        return false;
+    }
+	return true;
+
+}
+
+</script>
+
+
+</head>
+
+<body>
+
+
+    <form name="user" method="post" action="login" class="main" onsubmit="return validate()">
+	<table class="main">
+    <tr><h1>log in <h1></tr> 
+     <tr> 
+        <td  align="right">Email:</td> 
+        <td ><input type=text id="email" name="email" ></td>
+        <td> <p id="mail" style="color: darkred;"></p> </td> 
+      </tr>  
+	  <tr>
+	    <td  align="right">Password:</td>
+        <td ><input type=password id="password" name="password" ></td>
+        <td> <p id="pass" style="color: darkred;"></p> </td>
+	  </tr>   
+	   <tr> 
+	     <td ></td> 
+	     <td ><input type=submit value='login'></td> 
+	   </tr> 
+	  
+  	</table>
+    </form>
+</body>
+</html>
+	 

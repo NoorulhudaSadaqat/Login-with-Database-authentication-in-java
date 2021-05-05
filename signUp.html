@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>SignUp </title>
+
+<script language="JavaScript" type="text/javaScript">
+
+function validate()
+{	
+
+	if ( document.user.uname.value == "" )
+	    {
+            document.getElementById("uname").focus();	
+            document.getElementById("name").innerHTML="User name is empty!!";	
+			return false;
+	    }
+
+	if(document.user.password.value == "")	
+	   {
+			document.getElementById("password").focus();
+            document.getElementById("pass").innerHTML="password is empty!!";	
+			return false;
+	   }	
+
+	if(document.user.password.value!=document.user.confirm_password.value)
+	{
+            document.getElementById("cpass").innerHTML="New Password and Confirm new Password doesnt match";	
+			document.getElementById("confirm_password").focus();
+			return false;
+	}
+	if ( document.user.email.value == "" )		
+    {
+        document.getElementById("mail").innerHTML="Email address is empty!!!";
+        document.getElementById("email").focus();
+		return false;
+	}	
+    let valu=document.getElementById("email").value;
+    let loc1=valu.indexOf('@');
+    let loc2=valu.indexOf('.');
+    if(loc1<1) 
+    { 
+        document.getElementById("mail").innerHTML="Email address is Invalid!!!";
+        document.getElementById("email").focus();
+        return false;
+    }
+    if(loc2<(loc1+1))
+    { 
+        document.getElementById("mail").innerHTML="Email address is Invalid!!!";
+        document.getElementById("email").focus();
+        return false;
+    }
+    if((loc2+2)>valu.length)
+    { 
+        document.getElementById("mail").innerHTML="Email address is Invalid!!!";
+        document.getElementById("email").focus();
+        return false;
+    }
+	return true;
+
+}
+
+</script>
+
+
+</head>
+
+<body>
+
+
+    <form name="user" method="post" action="signUp" onsubmit="return validate()">
+	<table>
+	<tr><p><font color=blue size=3><b><u>Sign Up </u></b></font></p></tr> 
+	  <tr>
+	      <td  align="right">Username:</td>
+          <td ><input type=text id="uname" name="uname"></td>
+          <td> <p id="name" style="color: darkred;"></p> </td>
+      </tr>
+	  <tr>
+	    <td  align="right">Password:</td>
+        <td ><input type=password id="password" name="password" ></td>
+        <td> <p id="pass" style="color: darkred;"></p> </td>
+	  </tr>   
+	   <tr> 
+	     <td  align="right">Confirm password:</td> 
+         <td ><input type=password id="confirm_password" name="confirm_password"></td> 
+         <td> <p id="cpass" style="color: darkred;"></p> </td>
+	   </tr> 
+	   <tr> 
+	     <td  align="right">Email:</td> 
+         <td ><input type=text id="email" name="email" ></td>
+         <td> <p id="mail" style="color: darkred;"></p> </td> 
+	   </tr>  
+	   <tr> 
+	     <td ></td> 
+	     <td ><input type=submit value='signUp'></td> 
+	   </tr> 
+	  
+  	</table>
+    </form>
+</body>
+</html>
+	 
